@@ -1,0 +1,42 @@
+* {
+  font-family: 'Rokkitt', serif;
+}
+
+.gold {
+  background-color: #F9A91A;
+}
+
+.text-white {
+  color: #fff;
+}
+
+/*Header*/
+header p,
+input,
+select {
+  font-family: 'Roboto', sans-serif;
+}
+
+hr {
+  width: 27px;
+  height: 0;
+  border-width: 2px;
+  border-color: black;
+  margin: 0;
+}
+
+select {
+  background-color: #cccccc;
+  border: none;
+  outline: none;
+}
+
+/*Game*/
+section .left,
+section .right {
+  height: 500px;
+}
+
+section .right {
+  background-color: #333333;
+}
