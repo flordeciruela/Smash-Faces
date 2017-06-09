@@ -40,3 +40,8 @@ section .right {
 section .right {
   background-color: #333333;
 }
+
+.root img {
+	height: 100%;
+	width: 100%;
+}
