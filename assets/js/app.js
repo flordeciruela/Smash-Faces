@@ -1,37 +1,91 @@
 'use strict';
-
-const Game = (update) => {
-
-
-	const root = $('.root');
-	  root.empty();
-	const imgCoder = $('<img src="" alt="Image coder">');
-	root.append(imgCoder);
-	const imgRoute = "assets/img/mexico/";
-	var value = Math.round(Math.random() * mexico.length);
-	console.log(value);
-	console.log(mexico[value]);
-	console.log(imgRoute + mexico[value].image);
-	//imgCoder.src = imgRoute + mexico[value].image;
-	imgCoder.attr("src", imgRoute + mexico[value].image);
-	/*
-  const update = function() {
-    render(root);
-  }
-	*/
-}
-
-
-
 $( _ => {
+  const root = $('.root');
+
+  var state = {
+  sedeSelected: null,
+  arrayCoders: null,
+  indexOfCoder: null,
+  points: 0,
+  countIntentos: 0,
+  codersValidated: []
+  }
+
+  const loadImage = (sedeSelected, arrayCoders) => {
+    root.empty();
+    state.countIntentos = 0;
+    const imgCoder = $('<img src="" alt="Image coder">');
+    root.append(imgCoder);
+    let imgRoute = "assets/img/" +sedeSelected+ "/";
+
+    const random = (imgCoder) => {
+      const indexRandom = Math.round(Math.random() * arrayCoders.length -1);
+      const actualNumber = state.codersValidated.find(function(value){
+                              return value == indexRandom;
+                            });
+      if(actualNumber == undefined){
+        state.codersValidated.push(indexRandom);
+        state.indexOfCoder = arrayCoders[indexRandom];
+        imgCoder.attr("src", imgRoute + arrayCoders[indexRandom].image);
+        console.log(indexRandom);
+      }else{
+        console.log(indexRandom);
+        random(imgCoder);
+      }
+      return state.codersValidated[state.codersValidated.length -1];
+    }
+    random(imgCoder);
+
+    console.log(state.codersValidated);
+    console.log(state.indexOfCoder);
+  }
+
+  $( "form" ).submit(function(e) {
+      e.preventDefault();
+      let inputName = $("#input-nombre").val().toLowerCase();
+      let coderName = state.indexOfCoder.name.toLowerCase();
+      state.countIntentos++;
+
+      if (inputName === coderName) {
+        alert("Excelente acertaste!");
+        $( "#points" ).text(state.points += 5);
+        $("#input-nombre").val("");
+        if (state.codersValidated.length == state.arrayCoders.length) {
+          alert("Game over, ganaste "+state.points+ " puntos!");
+        } else {
+          loadImage(state.sedeSelected, state.arrayCoders);
+        }
+
+        console.log(state.arrayCoders.length);
+      } else {
+        alert("Sigue intentando!");
+        if (state.countIntentos >= 5) {
+          alert("Fallaste 5 veces, pierdes 1 punto");
+          $( "#points" ).text(state.points -= 1);
+
+          if (state.codersValidated.length == state.arrayCoders.length) {
+            alert("Game over, ganaste "+state.points+ " puntos!");
+          } else {
+            setTimeout(function() {
+              loadImage(state.sedeSelected, state.arrayCoders);
+            }, 2000);
+          }
+        }
+      }
+
+    });
+
 	//root.empty();
-	console.log($( "select option:selected" ).text());
 	$( "select" ).change(function() {
-	  Game();
+    root.empty();
+    if ($(this).val() == "Lima") {
+      state.sedeSelected = "peru";
+      state.arrayCoders = peru;
+    } else  {
+      state.sedeSelected = "mexico";
+      state.arrayCoders = mexico;
+    }
+    loadImage(state.sedeSelected, state.arrayCoders);
 	});
-/*
-    const root = $('.root');
-    render(root);
-  });
-*/
+
 });

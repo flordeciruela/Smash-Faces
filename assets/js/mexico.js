@@ -7,7 +7,7 @@ var mexico = [{
             },{
               image: "Analy Miranda.JPG",
               name: "Analy"
-            },{
+            }/*,{
               image: "Areli Rodriguez.JPG",
               name: "Areli"
             },{
@@ -38,10 +38,10 @@ var mexico = [{
               image: "Johana Alexa Vargas.JPG",
               name: "Johana"
             },{
-              image: "Joyce Zeltzin Hernández.JPG",
+              image: "Joyce Zeltzin Hernandez.JPG",
               name: "Joyce"
             },{
-              image: "Juana Ofelia García.JPG",
+              image: "Juana Ofelia Garcia.JPG",
               name: "Juana"
             },{
               image: "Karen A. Sharon De Diego.JPG",
@@ -100,4 +100,4 @@ var mexico = [{
             },{
               image: "Zazil Aurora Martinez.JPG",
               name: "Zazil"
-            }];
+            }*/];

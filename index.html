@@ -11,8 +11,8 @@
     <header>
       <h1>Smash Faces</h1>
       <hr>
-      <p>Bienvenidas al juego de Smash Faces, tu mision es poder identificar a todas tus compañeras de clase ingresando para ellos si nombre. Tienes 5 oportunidades antes de perder un punto y pasar a la siguiente.</p>
-      <div class="Left">
+      <p class="marginY">Bienvenidas al juego de Smash Faces, tu mision es poder identificar a todas tus compañeras de clase ingresando para ellos si nombre. Tienes 5 oportunidades antes de perder un punto y pasar a la siguiente.</p>
+      <div class="left marginY">
         <label for="">Elige tu sede:</label>
         <select>
           <option disabled selected value>-Selecciona-</option>
@@ -20,18 +20,18 @@
           <option>Lima</option>
         </select>
       </div>
-      <div class="Right">
+      <div class="right marginY">
         <span>Puntos: <span id="points">0</span> puntos</span>
       </div>
     </header>
     <section class="container-fluid">
       <div class="row">
         <div class="root left col-xs-5"></div>
-        <div class="right col-xs-7">
+        <form class="right col-xs-7">
           <label for="input-nombre" class="text-white">Ingresa su nombre:</label>
-          <input type="text" id="input-nombre" value="Nombre">
-          <input type="submit" class="gold text-white" value="Comprobar">
-        </div>
+          <input type="text" id="input-nombre" placeholder="Nombre">
+          <input type="submit" id="comprobar" class="gold text-white" value="Comprobar">
+        </form>
       </div>
     </section>
     <script src="assets/js/jquery-min.js" charset="utf-8"></script>

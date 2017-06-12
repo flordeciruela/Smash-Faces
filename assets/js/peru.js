@@ -6,7 +6,7 @@ var peru =  [{
               name:"Joselyn"
             },{
               image:"Antonella Gutierrez.jpg",
-              name:"Antonella" 
+              name:"Antonella"
             },{
               image:"Karen Valdivia.JPG",
               name:"Karen"
@@ -29,7 +29,7 @@ var peru =  [{
               image:"Gabriela Segura.jpg",
               name:"Gabriela"
             },{
-              image:"Genesis Leon.jpg", 
+              image:"Genesis Leon.jpg",
               name:"Genesis"
             },{
               image:"Ingrid Dariana Patiño.jpg",

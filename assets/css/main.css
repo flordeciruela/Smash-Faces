@@ -10,6 +10,11 @@
   color: #fff;
 }
 
+.marginY {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 /*Header*/
 header p,
 input,
@@ -18,30 +23,57 @@ select {
 }
 
 hr {
+  display: inline-block;
   width: 27px;
   height: 0;
   border-width: 2px;
   border-color: black;
   margin: 0;
+  margin-bottom: 20px;
 }
 
 select {
   background-color: #cccccc;
   border: none;
   outline: none;
+  width: 200px;
+}
+
+label {
+  font-size: 18px;
+  font-weight: lighter;
+}
+
+header div {
+  display: inline-block;
+}
+
+header .right span {
+  font-size: 18px;
+  font-weight: 600;
 }
 
 /*Game*/
 section .left,
 section .right {
+  background-color: #333333;
   height: 500px;
 }
 
-section .right {
-  background-color: #333333;
+section .left {
+  padding: 0;
 }
 
 .root img {
 	height: 100%;
 	width: 100%;
+}
+
+form {
+  text-align: center;
+  padding-top: 10%;
+}
+
+input {
+  border: none;
 }
