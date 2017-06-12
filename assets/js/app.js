@@ -34,8 +34,6 @@ $( _ => {
       return state.codersValidated[state.codersValidated.length -1];
     }
     random(imgCoder);
-
-    console.log(state.codersValidated);
     console.log(state.indexOfCoder);
   }
 
@@ -54,7 +52,7 @@ $( _ => {
 				} else {
 					loadImage(state.sedeSelected, state.arrayCoders);
 				}
-				console.log(state.arrayCoders.length);
+
 			} else if (state.countIntentos < 5) {
 				alert("Sigue intentando!");
 			} else {
@@ -70,7 +68,6 @@ $( _ => {
 					}, 2000);
 				}
 			}
-			console.log(state.countIntentos);
 		});
 
 	$( "select" ).change(function() {

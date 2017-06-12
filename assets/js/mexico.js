@@ -7,7 +7,7 @@ var mexico = [{
             },{
               image: "Analy Miranda.JPG",
               name: "Analy"
-            }/*,{
+            },{
               image: "Areli Rodriguez.JPG",
               name: "Areli"
             },{
@@ -100,4 +100,4 @@ var mexico = [{
             },{
               image: "Zazil Aurora Martinez.JPG",
               name: "Zazil"
-            }*/];
+            }];
