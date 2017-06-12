@@ -62,6 +62,14 @@ section .right {
 
 section .left {
   padding: 0;
+	border-right: 2px solid white;
+}
+
+section p {
+	padding-top: calc(50% - 57px);
+	color: white;
+	font-size: 40px;
+	text-align: center;
 }
 
 .root img {

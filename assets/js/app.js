@@ -19,7 +19,7 @@ $( _ => {
     let imgRoute = "assets/img/" +sedeSelected+ "/";
 
     const random = (imgCoder) => {
-      const indexRandom = Math.round(Math.random() * arrayCoders.length -1);
+      const indexRandom = Math.round(Math.random() * (arrayCoders.length -1));
       const actualNumber = state.codersValidated.find(function(value){
                               return value == indexRandom;
                             });
@@ -27,9 +27,8 @@ $( _ => {
         state.codersValidated.push(indexRandom);
         state.indexOfCoder = arrayCoders[indexRandom];
         imgCoder.attr("src", imgRoute + arrayCoders[indexRandom].image);
-        console.log(indexRandom);
+
       }else{
-        console.log(indexRandom);
         random(imgCoder);
       }
       return state.codersValidated[state.codersValidated.length -1];
@@ -40,44 +39,44 @@ $( _ => {
     console.log(state.indexOfCoder);
   }
 
-  $( "form" ).submit(function(e) {
-      e.preventDefault();
-      let inputName = $("#input-nombre").val().toLowerCase();
-      let coderName = state.indexOfCoder.name.toLowerCase();
-      state.countIntentos++;
+	$( "form" ).submit(function(e) {
+			e.preventDefault();
+			let inputName = $("#input-nombre").val().toLowerCase();
+			let coderName = state.indexOfCoder.name.toLowerCase();
+			state.countIntentos++;
 
-      if (inputName === coderName) {
-        alert("Excelente acertaste!");
-        $( "#points" ).text(state.points += 5);
-        $("#input-nombre").val("");
-        if (state.codersValidated.length == state.arrayCoders.length) {
-          alert("Game over, ganaste "+state.points+ " puntos!");
-        } else {
-          loadImage(state.sedeSelected, state.arrayCoders);
-        }
+			if (inputName === coderName) {
+				alert("Excelente acertaste!");
+				$( "#points" ).text(state.points += 5);
+				$("#input-nombre").val("");
+				if (state.codersValidated.length == state.arrayCoders.length) {
+					alert("Game over, ganaste "+state.points+ " puntos!");
+				} else {
+					loadImage(state.sedeSelected, state.arrayCoders);
+				}
+				console.log(state.arrayCoders.length);
+			} else if (state.countIntentos < 5) {
+				alert("Sigue intentando!");
+			} else {
+				alert("Fallaste 5 veces, pierdes 1 punto");
+				$( "#points" ).text(state.points -= 1);
 
-        console.log(state.arrayCoders.length);
-      } else {
-        alert("Sigue intentando!");
-        if (state.countIntentos >= 5) {
-          alert("Fallaste 5 veces, pierdes 1 punto");
-          $( "#points" ).text(state.points -= 1);
+				if (state.codersValidated.length == state.arrayCoders.length) {
+					alert("Game over, ganaste "+state.points+ " puntos!");
+				} else {
+					setTimeout(function() {
+						loadImage(state.sedeSelected, state.arrayCoders);
+						$("#input-nombre").val("");
+					}, 2000);
+				}
+			}
+			console.log(state.countIntentos);
+		});
 
-          if (state.codersValidated.length == state.arrayCoders.length) {
-            alert("Game over, ganaste "+state.points+ " puntos!");
-          } else {
-            setTimeout(function() {
-              loadImage(state.sedeSelected, state.arrayCoders);
-            }, 2000);
-          }
-        }
-      }
-
-    });
-
-	//root.empty();
 	$( "select" ).change(function() {
     root.empty();
+		$( "#points" ).text(state.points = 0);
+		state.codersValidated = [];
     if ($(this).val() == "Lima") {
       state.sedeSelected = "peru";
       state.arrayCoders = peru;
